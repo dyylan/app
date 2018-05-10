@@ -17,3 +17,9 @@
 2. Set environment variable for **FLASK_APP**
 
 to be continued ...
+
+**For Windows**
+
+1. Install Linux or buy a Mac
+
+2. GoTo **For Linux and Mac**
