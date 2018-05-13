@@ -8,6 +8,8 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = 'd.and.t.noreply@gmail.com'
     MAIL_PASSWORD = 'securepassword'
+    MAIL_SUBJECT_PREFIX = '[]'
+    MAIL_SEND = 'Admin <d.and.t.noreply@gmail.com>'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     @staticmethod
