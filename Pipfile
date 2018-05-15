@@ -1,0 +1,39 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+alembic = "*"
+blinker = "*"
+click = "*"
+dominate = "*"
+Flask = "*"
+Flask-Bootstrap = "*"
+Flask-Mail = "*"
+Flask-Migrate = "*"
+Flask-Moment = "*"
+Flask-SQLAlchemy = "*"
+Flask-WTF = "*"
+itsdangerous = "*"
+"Jinja2" = "*"
+Mako = "*"
+MarkupSafe = "*"
+python-dateutil = "*"
+python-editor = "*"
+SQLAlchemy = "*"
+visitor = "*"
+Werkzeug = "*"
+WTForms = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_version = "3.6"
