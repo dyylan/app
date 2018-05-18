@@ -1,6 +1,6 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}Kuu{% endblock %}
+{% block title %}Pomelo{% endblock %}
 
 {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url_for('main.index') }}">Kuu</a>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">Pomelo</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -33,9 +33,16 @@
         {{ message }}
     </div>
     {% endfor %}
-
-    {% block page_content %}{% endblock %}
 </div>
+<main class="container" role="main">
+    {% block page_content %}{% endblock %}
+</main> 
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link href="{{url_for('static', filename='custom.css')}}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Inder|Tauri" rel="stylesheet">
 {% endblock %}
 
 {% block scripts %}

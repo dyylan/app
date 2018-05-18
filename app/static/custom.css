@@ -1,0 +1,16 @@
+h1.standard {
+    font-family: 'Inder', sans-serif;
+    font-size: 40pt;
+    margin-bottom: 30pt;
+}
+h2.standard {
+    font-family: 'Tauri', sans-serif;
+    font-size: 18pt;
+    font-style: bold;
+    margin-bottom: 20pt;
+}
+p.standard {
+    font-family: 'Tauri', sans-serif;
+    font-size: 14pt;
+    margin-bottom: 20pt;
+}
