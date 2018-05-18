@@ -1,5 +1,9 @@
 {% extends "bootstrap/base.html" %}
 
+{% block head %}
+<link rel="shortcut icon" href="{{url_for('static', filename='images/favicon.png')}}">
+{% endblock %}
+
 {% block title %}Pomelo{% endblock %}
 
 {% block navbar %}
