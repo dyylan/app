@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Confirm your account{% endblock %}
+
+{% block page_content %}
+<div class="page_header">
+  <h1 class="standard">Confirm your account</h1>
+</div>
+<div class="standard">
+  Need another confirmation email? <a href="{{ url_for('auth.resend_confirmation') }}">Click here to resend.</a>
+</div>
+{% endblock %}
