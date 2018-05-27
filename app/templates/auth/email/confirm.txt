@@ -1,13 +1,11 @@
-<p>
-Hi {{ user.username }},</br>
-</br>
-Thank you for registering!</br>
-</br>
+Hi {{ user.username }},
+
+Thank you for registering!
+
 To confirm your account please click on the following link:
-{{ url_for('auth.confirm', token=token, _external=True) }}</br>
-</br>
-Best wishes,</br>
-Dylan and Tom</br>
-</br>
-Please note: we do not receive replies to this email.</br>
-</p>
+{{ url_for('auth.confirm', token=token, _external=True) }}
+
+Best wishes,
+Dylan and Tom
+
+Please note: we do not receive replies to this email.

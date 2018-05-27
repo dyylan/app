@@ -1,13 +1,8 @@
-<p>
-Hi {{ user.username }},</br>
-</br>
-Thank you for registering!</br>
-</br>
-To confirm your account please click on the following link:
-{{ url_for('auth.confirm', token=token, _external=True) }}</br>
-</br>
-Best wishes,</br>
-Dylan and Tom</br>
-</br>
-Please note: we do not receive replies to this email.</br>
-</p>
+<p>Hi {{ user.username }},</p>
+<p>Thank you for registering!</p>
+<p>To confirm your account please <a href="{{ url_for('auth.confirm', token=token, _external=True) }}">click here</a>.</p>
+<p>Or copy the following link into your browser:</p>
+<p>{{ url_for('auth.confirm', token=token, _external=True) }}</p>
+<p>Best wishes,</p>
+<p>Dylan and Tom</p>
+<p><small>Please note: we do not receive replies to this email.</small></p>
