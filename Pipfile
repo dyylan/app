@@ -28,6 +28,7 @@ WTForms = "*"
 flask-login = "*"
 
 [dev-packages]
+"flake8" = "*"
 pylint = "*"
 
 [requires]

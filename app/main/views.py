@@ -1,5 +1,6 @@
-from flask import render_template, session, redirect, url_for, current_app
+from flask import render_template
 from . import main
+
 
 @main.route('/')
 def index():
