@@ -3,13 +3,14 @@
 {% block title %}webapp{% endblock %}
 
 {% block page_content %}
-<h1 class="display-1">
-    Welcome to the main page 
-</h1>
-<h2> 
-    Subheading for the main page 
-</h2>
-<p> 
-    First level of paragraph content goes here 
-</p>
+<div class="page_heading">
+    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1> 
+</div>
+<div>
+    {% if current_user.can(Permission.WRITE) %}
+    {{ wtf.quick_form(form) }}
+    {% endif %}
+</div>
+{{ include '_posts.html' }}
+
 {% endblock %}

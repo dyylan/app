@@ -120,7 +120,7 @@ def password_reset_request():
                        user=user, token=token, next=request.args.get('next'))
         flash('Intstructions to reset your password have been emailed to you.')
         return redirect(url_for('auth.login'))
-    return render_template('auth/template.html', form=form)
+    return render_template('auth/reset_password.html', form=form)
 
 
 @auth.route('/reset/<token>', methods=['GET', 'POST'])
