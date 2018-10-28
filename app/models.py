@@ -188,7 +188,7 @@ class AnonymousUser(AnonymousUserMixin):
     def can(self, perm):
         return False
 
-    def is_administrator(self, perm):
+    def is_administrator(self):
         return False
 
 
