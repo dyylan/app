@@ -1,0 +1,135 @@
+body {
+    margin: 10px 10% 10px 10%;
+    font-family: 'Merriweather', serif; 
+}
+
+.header {
+    margin: 5px 11px;
+    text-align: left;
+    background: rgb(255, 255, 255);
+}
+
+.header h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 44px;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.navbar {
+    overflow: hidden;
+    background: rgba(255, 255, 255, 1);
+}
+
+.navbar a {
+    margin: 2px 10px 10px 10px;    
+    float: left;
+    display: block;
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: rgba(0,0,0,1);
+    transition: 0.3s;
+}
+
+.content {
+    margin: 5px 0px;
+}
+
+.content h1 {
+    font-size: 20px;
+}
+.content li {
+    margin: 10px 0px 10px 0px;
+    list-style-type: circle;
+}
+
+.content a {
+    color: rgba(0,0,0,0.7);
+}
+
+.content a:hover {
+    color: rgba(0,0,0,1);
+    transition: 0.3s;
+}
+
+.content .left-column {
+    background: rgb(255, 255, 255);
+    float: left;
+    width: 68%;
+}
+
+.content .left-column .left-content {
+    padding-left: 2%; 
+}
+
+.content .right-column {
+    background: rgba(0, 128, 0, 0.15);
+    float: right;
+    width: 32%;
+}
+
+.content .right-column .right-content {
+    padding-left: 5%;
+    font-size: 85%;
+}
+
+.flash-message {
+    width: 90%;
+    padding: 10px 0px;
+    background: rgba(0, 128, 0, 0.15);
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0,128,0,0.7);
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+form {
+    margin: 10px 0px;
+}
+
+.form-standard label {
+    color: rgba(0,0,0,0.5);
+    font-size: 14px;
+}
+
+.form-standard input[type=text], .form-standard input[type=password] {
+    margin: 7.5px 0px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: rgba(0,0,0,0.5);
+    height: 25px;
+    width: 40%;
+    padding-left: 10px;
+    font-size: 14px;
+    font-family: 'Merriweather', serif; 
+}
+
+.form-standard input[type=text]:hover, .form-standard input[type=password]:hover {
+    border-color: rgba(0,0,0,1);
+}
+
+.form-standard input[type=text]:focus, .form-standard input[type=password]:focus {
+    border-color: rgba(0,0,0,1);
+}
+
+.form-standard input[type=submit] {
+    font-family: 'Merriweather', serif;
+    font-size: 13px;
+    color:  rgba(0,0,0,0.7);
+    margin: 8px 0px;
+    height: 30px;
+    width: 100px;  
+    background: rgba(0, 0, 0, 0.10);
+}
+
+.form-standard input[type=submit]:hover {
+    color: rgba(0,0,0,1);
+}

@@ -1,0 +1,11 @@
+<div class="form-standard">
+    <form method="POST" action="{{ url_for('auth.password_reset_request') }}" role="form">
+        {{ form.csrf_token }}
+        <div>
+            <input type="text" id="email" name="email" placeholder="Email">
+        </div>
+        <div>
+            <input type="submit" id="submit" name="submit" value="Submit">
+        </div>
+    </form>
+</div>

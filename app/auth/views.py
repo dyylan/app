@@ -21,6 +21,9 @@ def login():
                 next = url_for('main.index')
             return redirect(next)
         flash('Invalid username or password.')
+    for field in form.errors:
+        for error in form.errors[field]:
+            flash(f"Error: {field.capitalize()} - {error}")
     return render_template('auth/login.html', form=form)
 
 
@@ -46,6 +49,9 @@ def register():
                    'auth/email/confirm', user=user, token=token)
         flash('A confirmation email has been sent to you.')
         return redirect(url_for('main.index'))
+    for field in form.errors:
+        for error in form.errors[field]:
+            flash(f"Error: {field.capitalize()} - {error}")
     return render_template('auth/register.html', form=form)
 
 
@@ -118,8 +124,11 @@ def password_reset_request():
             send_email(user.email, 'Reset your password',
                        'auth/email/reset_password',
                        user=user, token=token, next=request.args.get('next'))
-        flash('Intstructions to reset your password have been emailed to you.')
+        flash('Instructions to reset your password have been emailed to you.')
         return redirect(url_for('auth.login'))
+    for field in form.errors:
+        for error in form.errors[field]:
+            flash(f"Error: {field.capitalize()} - {error}")
     return render_template('auth/reset_password.html', form=form)
 
 
@@ -135,6 +144,9 @@ def password_reset(token):
             return redirect(url_for('auth.login'))
         else:
             return redirect(url_for('main.index'))
+    for field in form.errors:
+        for error in form.errors[field]:
+            flash(f"Error: {field.capitalize()} - {error}")
     return render_template('auth/reset_password.html', form=form)
 
 
@@ -153,6 +165,9 @@ def change_email_request():
             return redirect(url_for('main.index'))
         else:
             flash('Invalid email or password')
+    for field in form.errors:
+        for error in form.errors[field]:
+            flash(f"Error: {field.capitalize()} - {error}")
     return render_template('auth/change_email.html', form=form)
 
 

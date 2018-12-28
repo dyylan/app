@@ -1,0 +1,18 @@
+<div class="form-standard">
+    <form method="POST" action="{{ url_for('auth.login') }}" role="form">
+        {{ form.csrf_token }}
+        <div>
+            <input type="text" id="email" name="email" placeholder="Email">
+        </div>
+        <div>
+            <input type="password" id="password" name="password" placeholder="Password">
+        </div>
+        <div>
+            <label id="remember_me">Remember me:</label>
+            <input type="checkbox" id="remember_me" name="remember_me" value="Remember me">    
+        </div>
+        <div>
+            <input type="submit" id="submit" name="submit" value="Sign in">
+        </div>
+    </form>
+</div>

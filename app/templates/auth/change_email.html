@@ -1,13 +1,10 @@
 {% extends "base.html" %}
-{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}Change email{% endblock %}
 
 {% block page_content %}
-<div class="page_header">
-    <h1 class="display-1">Change email</h1>
-</div>
-<div class="col-md-6">
+<h1>Change email</h1>
+<div>
     {{ wtf.quick_form(form) }}
 </div>
 {% endblock %}
