@@ -158,7 +158,7 @@ def change_email_request():
         if current_user.verify_password(form.password.data):
             new_email = form.email.data
             token = current_user.generate_email_change_token(new_email)
-            send_email(new_email, 'Confirm your email address',
+            send_email(new_email, 'Confirm your email address.',
                        '/auth/email/change_email',
                        user=current_user, token=token)
             flash('A confirmation email has been sent to you.')
@@ -176,7 +176,7 @@ def change_email_request():
 def change_email(token):
     if current_user.change_email(token):
         db.session.commit()
-        flash('Your email address has been updated')
+        flash('Your email address has been updated.')
     else:
         flash('Invalid request')
     return redirect(url_for('main.index'))
