@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather|Lobster">
         <script src="{{ url_for('static', filename='scripts/base.js') }}"></script>
+        {{ moment.include_jquery() }}
         {{ moment.include_moment() }}
     </head>
     <body>
@@ -17,7 +18,7 @@
         {% block navbar %}
         <div class="navbar">
             <a href="{{ url_for('main.index') }}">home</a>
-            <a href="{{ url_for('main.index') }}">about</a>
+            <a href="{{ url_for('main.about') }}">about</a>
             {% if current_user.is_authenticated %}
             <a href="{{ url_for('main.user', username=current_user.username) }}">profile</a>
             {% endif %}

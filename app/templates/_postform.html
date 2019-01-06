@@ -1,0 +1,11 @@
+<div class="form-standard">
+    <form method="POST" action="{{ url_for('main.index') }}" role="form">
+        {{ form.csrf_token }}
+        <div class="form-textbox">
+            <textarea id="body" name="body" placeholder="Post away!"></textarea>
+        </div>
+        <div>
+            <input type="submit" id="submit" name="submit" value="Post">
+        </div>
+    </form>
+</div>

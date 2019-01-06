@@ -45,7 +45,7 @@ def edit_profile():
         flash('Your profile has been updated.')
         return redirect(url_for('.user', username=current_user.username))
     form.about_me.data = current_user.about_me
-    return render_template('edit_profile.html', form=form)
+    return render_template('edit_profile.html', form=form, user=current_user)
 
 
 @main.route('/edit-profile/<int:id>', methods=['GET', 'POST'])

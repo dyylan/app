@@ -5,6 +5,8 @@
 {% block page_content %}
     <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
     {% if current_user.is_authenticated %}
+    <p>Write a message:</p>
+    {% include "_postform.html" %}
     {% else %} 
         <p>Please sign in:</p>
         {% include "_loginform.html" %}
@@ -17,4 +19,6 @@
             </p>
         </div>
     {% endif %}
+    <h1>Posts</h1>
+    {% include "_posts.html" %}
 {% endblock %}

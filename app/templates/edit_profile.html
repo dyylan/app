@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Profile page - {{ user.username }}{% endblock %}
+{% block title %}Profile - {{ user.username }}{% endblock %}
 
 {% block page_content %}
-<div class="page-header">
+<div>
     <h1>{{ user.username }}</h1>
     {% if current_user.is_administrator() %}
     <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
