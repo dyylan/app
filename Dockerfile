@@ -22,10 +22,10 @@ FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 #RUN pip install -r /tmp/requirements.txt
 
 COPY ./app /app
-
 WORKDIR /app
+
 RUN python3 -m pip install pipenv
-RUN pipenv install --system
+RUN pipenv install --system --deploy --ignore-pipfile
 
 #ENV PYTHONPATH=/app
 
