@@ -25,7 +25,8 @@ COPY ./app /app
 WORKDIR /app
 
 RUN python3 -m pip install pipenv
-RUN pipenv install --system --deploy --ignore-pipfile
+RUN pipenv lock --requirements > requirements.txt
+RUN pip install requirements.txt
 
 #ENV PYTHONPATH=/app
 
