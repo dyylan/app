@@ -24,7 +24,7 @@ FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 COPY ./app /app
 WORKDIR /app
 
-RUN python3 -m pip install pipenv
+#RUN python3 -m pip install pipenv
 RUN pipenv lock --requirements > requirements.txt
 RUN pip install requirements.txt
 
