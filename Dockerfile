@@ -15,8 +15,8 @@ FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 
 #RUN python3 -m pip install pipenv
 #RUN pipenv install --system
-
-COPY requirements.txt /tmp/
+ 
+COPY ./app/requirements.txt /tmp/
 
 # upgrade pip and install required python packages
 RUN pip install -U pip
