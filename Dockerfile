@@ -13,6 +13,15 @@ FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 #ENV STATIC_PATH /app/static
 #ENV STATIC_INDEX 0
 
+#RUN python3 -m pip install pipenv
+#RUN pipenv install --system
+
+COPY requirements.txt /tmp/
+
+# upgrade pip and install required python packages
+RUN pip install -U pip
+RUN pip install -r /tmp/requirements.txt
+
 COPY ./app /app
 #WORKDIR /app
 
@@ -25,9 +34,6 @@ COPY ./app /app
 # Copy the entrypoint that will generate Nginx additional configs
 #COPY entrypoint.sh /entrypoint.sh
 #RUN chmod +x /entrypoint.sh
-
-RUN python3 -m pip install pipenv
-RUN pipenv install --system
 
 #ENTRYPOINT ["/entrypoint.sh"]
 
