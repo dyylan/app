@@ -15,18 +15,18 @@ FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
 
 
  
-#COPY ./app/requirements.txt /tmp/
+COPY ./app/requirements.txt /tmp/
 
 # upgrade pip and install required python packages
-#RUN pip install -U pip
-#RUN pip install -r /tmp/requirements.txt
+RUN pip install -U pip
+RUN pip install -r /tmp/requirements.txt
 
 COPY ./app /app
-WORKDIR /app
+#WORKDIR /app
 
 #RUN python3 -m pip install pipenv
-RUN pipenv lock --requirements > requirements.txt
-RUN pip install requirements.txt
+#RUN pipenv lock --requirements > requirements.txt
+#RUN pip install requirements.txt
 
 #ENV PYTHONPATH=/app
 
