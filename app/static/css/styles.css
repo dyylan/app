@@ -73,6 +73,14 @@ body {
     padding-left: 2%; 
 }
 
+.content .left-column .reset-password p {
+    font-size: 80%;
+}
+
+.content .left-column .register p {
+    font-size: 80%;
+}
+
 .content .right-column {
     background: rgba(0, 128, 0, 0.15);
     float: right;
@@ -87,13 +95,32 @@ body {
 .flash-message {
     width: 90%;
     padding: 10px 0px;
+    color: darkslategrey;
     background: rgba(0, 128, 0, 0.15);
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(0,128,0,0.7);
+    border-color: rgba(0,128,0,0.3);
     font-family: 'Merriweather', serif;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 12px;
+}
+
+.flash-message:hover {
+    transition: 0.3s;
+    border-color: rgba(0,128,0,1)
+}
+
+.flash-message .x-button {
+    font-size: 115%; 
+    color: rgba(47, 79, 79, 0.3); 
+    font-weight: normal; 
+    float:right; 
+    padding-right: 1.5%
+}
+
+.flash-message:hover .x-button {
+    transition: 0.3s;
+    color: rgba(47, 79, 79, 0.9); 
 }
 
 form {
@@ -101,12 +128,12 @@ form {
 }
 
 .form-standard label {
-    color: rgba(0,0,0,0.5);
+    color: rgba(0,0,0,0.8);
     font-size: 14px;
 }
 
 .form-standard input[type=text], .form-standard input[type=password] {
-    margin: 7.5px 0px;
+    margin: 8px 0px;
     border-style: solid;
     border-width: 0px 0px 1px 0px;
     border-color: rgba(0,0,0,0.5);
@@ -125,19 +152,25 @@ form {
     border-color: rgba(0,0,0,1);
 }
 
+.form-standard input[type=checkbox] {
+    margin: 10px 10px 10px 10px;
+}
+
 .form-standard input[type=submit] {
     font-family: 'Merriweather', serif;
     font-size: 13px;
-    color:  rgba(0,0,0,0.7);
-    margin: 8px 0px;
+    color:  rgba(0,128,0,0.95);
+    margin: 12px 0px 8px 0px;
     height: 30px;
-    width: 125px;  
-    background-color: rgba(0, 0, 0, 0.10);
+    width: 110px;  
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid  rgba(0,128,0,0.7);
 }
 
 .form-standard input[type=submit]:hover {
-    color: rgba(0,0,0,1);
-    text-color:
+    /*color: rgba(0,0,0,1);*/
+    background-color: rgba(0, 128, 0, 0.05);
+    transition: 0.3s;
 }
 
 .form-standard .form-textbox {

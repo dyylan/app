@@ -32,13 +32,7 @@
         <div class="content">
             <div class="left-column">
                 <div class="left-content">
-                        {% for message in get_flashed_messages() %}
-                            <div>
-                                <button class="flash-message" type="button" onclick="deleteSelf(this);">
-                                    {{ message }} <font style="font-weight: normal; font-style: italic; font-size: 8px;"> Click to remove.</font>
-                                </button>
-                            </div>
-                        {% endfor %}
+                    {% include "_flashedmessage.html" %}
                     {% block page_content %}{% endblock %}
                 </div>  
             </div>

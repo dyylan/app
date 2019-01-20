@@ -5,12 +5,4 @@
 {% block page_content %}
 <h1>Login</h1>
 {% include "_loginform.html" %}
-<div>
-  <p>
-    <a href="{{ url_for('auth.register') }}">Click here to register.</a>
-  </p>
-  <p>
-    <a href="{{ url_for('auth.password_reset_request') }}">Click here to reset password.</a>
-  </p>
-</div>
 {% endblock %}

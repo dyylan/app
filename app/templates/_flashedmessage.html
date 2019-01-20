@@ -1,0 +1,10 @@
+{% for message in get_flashed_messages() %}
+<div>
+    <button class="flash-message" type="button" onclick="deleteSelf(this);">
+        {{ message }} 
+        <font class="x-button">
+            &#x2718
+        </font>
+    </button>
+</div>
+{% endfor %}

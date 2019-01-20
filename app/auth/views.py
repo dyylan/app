@@ -23,7 +23,7 @@ def login():
         flash('Invalid username or password.')
     for field in form.errors:
         for error in form.errors[field]:
-            flash(f"Error: {field.capitalize()} - {error}")
+            flash(f"{field.capitalize()} - {error}")
     return render_template('auth/login.html', form=form)
 
 
@@ -51,7 +51,7 @@ def register():
         return redirect(url_for('main.index'))
     for field in form.errors:
         for error in form.errors[field]:
-            flash(f"Error: {field.capitalize()} - {error}")
+            flash(f"{field.capitalize()} - {error}")
     return render_template('auth/register.html', form=form)
 
 
@@ -128,8 +128,8 @@ def password_reset_request():
         return redirect(url_for('auth.login'))
     for field in form.errors:
         for error in form.errors[field]:
-            flash(f"Error: {field.capitalize()} - {error}")
-    return render_template('auth/reset_password.html', form=form)
+            flash(f"{field.capitalize()} - {error}")
+    return render_template('auth/reset_password_request.html', form=form)
 
 
 @auth.route('/reset/<token>', methods=['GET', 'POST'])
@@ -146,7 +146,7 @@ def password_reset(token):
             return redirect(url_for('main.index'))
     for field in form.errors:
         for error in form.errors[field]:
-            flash(f"Error: {field.capitalize()} - {error}")
+            flash(f"{field.capitalize()} - {error}")
     return render_template('auth/reset_password.html', form=form)
 
 
@@ -167,7 +167,7 @@ def change_email_request():
             flash('Invalid email or password')
     for field in form.errors:
         for error in form.errors[field]:
-            flash(f"Error: {field.capitalize()} - {error}")
+            flash(f"{field.capitalize()} - {error}")
     return render_template('auth/change_email.html', form=form)
 
 
