@@ -1,5 +1,5 @@
 <div class="form-standard">
-    <form method="POST" action="{{ url_for('auth.password_reset', token) }}" role="form">
+    <form method="POST" action="{{ url_for('auth.password_reset', token=token) }}" role="form">
         {{ form.csrf_token }}
         <div>
             <input type="password" id="password" name="password" placeholder="Password">

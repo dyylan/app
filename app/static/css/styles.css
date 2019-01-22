@@ -145,6 +145,7 @@ form {
 }
 
 .form-standard input[type=text]:hover, .form-standard input[type=password]:hover {
+    transition: 0.3s;
     border-color: rgba(0,0,0,1);
 }
 
