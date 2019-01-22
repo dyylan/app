@@ -147,7 +147,7 @@ def password_reset(token):
     for field in form.errors:
         for error in form.errors[field]:
             flash(f"{field.capitalize()} - {error}")
-    return render_template('auth/reset_password.html', form=form)
+    return render_template('auth/reset_password.html', form=form, token=token)
 
 
 @auth.route('/change-email', methods=['GET', 'POST'])
