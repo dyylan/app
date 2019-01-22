@@ -123,6 +123,15 @@ body {
     color: rgba(47, 79, 79, 0.9); 
 }
 
+@media only screen and (max-width: 800px) {
+    .content .left-column {
+        width: 100%;
+    } 
+    .content .right-column {
+        width: 100%;
+    }
+}
+
 form {
     margin: 10px 0px;
 }
