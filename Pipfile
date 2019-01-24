@@ -26,6 +26,7 @@ visitor = "*"
 Werkzeug = "*"
 WTForms = "*"
 flask-login = "*"
+"psycopg2" = "*"
 
 [dev-packages]
 "flake8" = "*"
