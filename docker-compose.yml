@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  mydb:
+    image: mysql:5.7
+    volumes:
+      - my_data:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=main
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=s4llyr00n3y
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=main
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=s4llyr00n3y
+  app:
+    build: .
+    ports:
+      - "8001:5000"
+    env_file: 
+      - envfile
+    depends_on:
+      - mydb
+      - mongodb
+
+volumes:
+  my_data: {}
+  mongo_data: {}
