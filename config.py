@@ -33,6 +33,7 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    MONGO_URI = os.environ.get('MONGODB_URL')
 
 
 config = {

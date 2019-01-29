@@ -11,5 +11,4 @@ def make_shell_context():
     return dict(db=db, User=User, Role=Role, Post=Post, Permission=Permission)
 
 if __name__ == "__main__":
-    Role.insert_roles()
     app.run()
