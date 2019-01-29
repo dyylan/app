@@ -25,7 +25,7 @@ services:
     ports:
       - "8001:5000"
     env_file: 
-      - envfile
+      - .env
     depends_on:
       - mydb
       - mongodb
