@@ -27,6 +27,8 @@ Werkzeug = "*"
 WTForms = "*"
 flask-login = "*"
 flask-pymongo = "*"
+"markdown2" = "*"
+pymysql = "*"
 
 [dev-packages]
 "flake8" = "*"

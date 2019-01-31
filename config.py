@@ -24,16 +24,18 @@ class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') \
         or 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    MONGO_URI = os.environ.get('MONGODB_URL') + '?authSource=admin'
 
 
 class TestingConfig(Config):
     TESTING = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    MONGO_URI = os.environ.get('MONGODB_URL') + '?authSource=admin'
 
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    MONGO_URI = os.environ.get('MONGODB_URL')
+    MONGO_URI = os.environ.get('MONGODB_URL') + '?authSource=admin'
 
 
 config = {

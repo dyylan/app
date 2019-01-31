@@ -15,6 +15,7 @@ flask==1.0.2
 itsdangerous==1.1.0
 jinja2==2.10
 mako==1.0.7
+markdown2==2.3.7
 markupsafe==1.1.0
 pymongo==3.7.2
 python-dateutil==2.7.5

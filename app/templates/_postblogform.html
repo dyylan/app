@@ -1,0 +1,20 @@
+<div class="form-standard">
+    <form method="POST" action="{{ url_for('blog.submit_blog_post') }}" role="form" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <div>
+            <input type="text" id="author" name="author" placeholder="author">
+        </div>
+        <div>
+            <input type="text" id="title" name="title" placeholder="blog post title">
+        </div>        
+        <div class="form-textbox">
+            <textarea id="description" name="description" placeholder="brief description"></textarea>
+        </div>
+        <div>
+            {{ form.file }}
+        </div>
+        <div>
+            <input type="submit" id="submit" name="submit" value="Post">
+        </div>
+    </form>
+</div>

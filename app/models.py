@@ -93,6 +93,7 @@ class User(UserMixin, db.Model):
     last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    blogposts = db.relationship('BlogPost', backref='author', lazy='dynamic')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
@@ -182,6 +183,14 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+
+class BlogPost(db.Model):
+    __tablename__ = 'blogposts'
+    id = db.Column(db.Integer, primary_key=True)
+    mongo_id = db.Column(db.String(64), unique=True, index=True)
+    title = db.Column(db.String(250), unique=True, index=True)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
 class AnonymousUser(AnonymousUserMixin):

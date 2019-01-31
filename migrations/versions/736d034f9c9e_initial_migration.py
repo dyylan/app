@@ -7,7 +7,9 @@ Create Date: 2019-01-26 17:49:53.953713
 """
 from alembic import op
 import sqlalchemy as sa
-
+from werkzeug.security import generate_password_hash
+import time
+import os
 
 # revision identifiers, used by Alembic.
 revision = '736d034f9c9e'
@@ -27,7 +29,7 @@ def upgrade():
     sa.UniqueConstraint('name')
     )
     op.create_index(op.f('ix_roles_default'), 'roles', ['default'], unique=False)
-    op.create_table('users',
+    users_table = op.create_table('users',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('email', sa.String(length=64), nullable=True),
     sa.Column('username', sa.String(length=64), nullable=True),
@@ -56,18 +58,42 @@ def upgrade():
     # ### Required roles must be added ###
     op.bulk_insert(
         roles_table,
-        [{'id'           :1,
-          'name'         :'User',
-          'default'      :True,
-          'permissions'  :7},
-         {'id'           :2,
-          'name'         :'Moderator',
-          'default'      :False,
-          'permissions'  :15},
-         {'id'           :3,
-          'name'         :'Administrator',
-          'default'      :False,
-          'permissions'  :31}]
+        [
+            {
+                'id'           : 1,
+                'name'         : 'User',
+                'default'      : True,
+                'permissions'  : 7
+            },
+            {
+                'id'           : 2,
+                'name'         : 'Moderator',
+                'default'      : False,
+                'permissions'  : 15
+            },
+            {
+                'id'           : 3,
+                'name'         : 'Administrator',
+                'default'      : False,
+                'permissions'  : 31
+            }
+        ]
+    )
+    op.bulk_insert(
+        users_table,
+        [
+            {
+                'id'                : 1,
+                'email'             : 'dylan.lewis@zoho.com',
+                'username'          : 'dylan',
+                'password_hash'     : '{}'.format(generate_password_hash(os.environ.get('ADMIN_PASS'))), 
+                'confirmed'         : True,
+                'about_me'          : '',
+                'member_since'      : '{}'.format(time.strftime('%Y-%m-%d %H:%M:%S')),
+                'last_seen'         : '{}'.format(time.strftime('%Y-%m-%d %H:%M:%S')),
+                'role_id'           : 3                
+            }
+        ]
     )
 
 
