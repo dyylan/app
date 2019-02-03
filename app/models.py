@@ -190,6 +190,7 @@ class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     mongo_id = db.Column(db.String(64), unique=True, index=True)
     title = db.Column(db.String(250), unique=True, index=True)
+    created = db.Column(db.DateTime(), default=datetime.utcnow)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 

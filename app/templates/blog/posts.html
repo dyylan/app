@@ -3,6 +3,10 @@
 {% block title %}Blog{% endblock %}
 
 {% block page_content %}
-<h1>First blog post!</h1>
-{{ post|safe }}
+<h1>Blog posts</h1>
+<ul>
+    {% for blogpost in blogposts %}
+    <li><a href="{{ url_for('blog.blog_post', post_id=blogpost[1]) }}">{{ blogpost[0] }}</a></li>
+    {% endfor %}
+</ul> 
 {% endblock %}

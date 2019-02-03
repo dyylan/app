@@ -29,6 +29,8 @@ flask-login = "*"
 flask-pymongo = "*"
 "markdown2" = "*"
 pymysql = "*"
+flask-marshmallow = "*"
+marshmallow-sqlalchemy = "*"
 
 [dev-packages]
 "flake8" = "*"
