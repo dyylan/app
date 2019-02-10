@@ -99,7 +99,7 @@ body {
     background: rgba(0, 128, 0, 0.15);
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(0,128,0,0.3);
+    border-color: rgba(0, 128, 0, 0.3);
     font-family: 'Merriweather', serif;
     font-weight: normal;
     font-size: 12px;
@@ -107,11 +107,11 @@ body {
 
 .flash-message:hover {
     transition: 0.3s;
-    border-color: rgba(0,128,0,1)
+    border-color: rgba(0, 128, 0, 1)
 }
 
 .flash-message .x-button {
-    font-size: 115%; 
+    font-size: 100%; 
     color: rgba(47, 79, 79, 0.3); 
     font-weight: normal; 
     float:right; 
@@ -120,16 +120,7 @@ body {
 
 .flash-message:hover .x-button {
     transition: 0.3s;
-    color: rgba(47, 79, 79, 0.9); 
-}
-
-@media only screen and (max-width: 800px) {
-    .content .left-column {
-        width: 100%;
-    } 
-    .content .right-column {
-        width: 100%;
-    }
+    color: rgba(47, 79, 79, 1); 
 }
 
 form {
@@ -219,4 +210,26 @@ form {
     border-color: rgba(0,0,0,0.25);
     margin: 10px;
     padding: 10px;
+}
+
+.blog-author {
+    font-style: italic
+}
+
+.blog-date-created {
+    color: grey;
+}
+
+.blog-return-link {
+    color: grey; 
+}
+
+
+@media only screen and (max-width: 800px) {
+    .content .left-column {
+        width: 100%;
+    } 
+    .content .right-column {
+        width: 100%;
+    }
 }

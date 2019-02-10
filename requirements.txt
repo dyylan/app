@@ -1,6 +1,7 @@
 -i https://pypi.python.org/simple
 alembic==1.0.7
 blinker==1.4
+bson==0.5.7
 click==7.0
 dominate==2.3.5
 flask-bootstrap==3.3.7.1

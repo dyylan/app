@@ -31,6 +31,7 @@ flask-pymongo = "*"
 pymysql = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
+bson = "*"
 
 [dev-packages]
 "flake8" = "*"

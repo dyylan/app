@@ -10,6 +10,7 @@ from ..emails import send_email
 from .forms import BlogPostForm
 from datetime import datetime
 from markdown2 import markdown
+from bson import ObjectId
 
 
 @blog.route('/submit-blog-post', methods=['GET', 'POST'])
@@ -36,8 +37,10 @@ def submit_blog_post():
         post_id = posts.insert_one(post).inserted_id
         blogpost = BlogPost(mongo_id=str(post_id),
                             title=form.title.data,
+                            author=form.author.data,
+                            description=form.description.data,
                             created=created_at,
-                            author=current_user._get_current_object())
+                            user=current_user._get_current_object())
         db.session.add(blogpost)
         db.session.commit()
         flash("Blog post successfully uploaded!")
@@ -47,12 +50,12 @@ def submit_blog_post():
     return render_template('blog/submitblogpost.html', form=form)
 
 
-@blog.route('/posts', methods=['GET'])
+@blog.route('/blogposts', methods=['GET'])
 def blog_posts():
-    blogposts = BlogPost.query.with_entities(BlogPost.title, BlogPost.mongo_id).all()
+    blogposts = BlogPost.query.with_entities(BlogPost.title, BlogPost.url).all()
     return render_template('blog/posts.html', blogposts=blogposts)
 
-
+'''
 @blog.route('/posts/<ObjectId:post_id>', methods=['GET'])
 def blog_post(post_id):
     blogpost = mongo.db.posts.find_one_or_404(post_id)
@@ -60,4 +63,14 @@ def blog_post(post_id):
                             post=blogpost["file_html"],
                             title=blogpost["title"],
                             author=blogpost["author"], 
-                            created=blogpost["created"])
+                            created=blogpost["created"])'''
+
+
+@blog.route('/blogposts/<post_url>', methods=['GET'])
+def blog_post(post_url):
+    blogpost_db = BlogPost.query.filter_by(url=post_url).first()
+    mongo_id = blogpost_db.mongo_id
+    blogpost_html = mongo.db.posts.find_one_or_404(ObjectId(mongo_id))['file_html']
+    return render_template('blog/post.html', 
+                            blogpost_html=blogpost_html,
+                            blogpost_db=blogpost_db)

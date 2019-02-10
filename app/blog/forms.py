@@ -6,8 +6,8 @@ from ..models import BlogPost
 
 class BlogPostForm(FlaskForm):
     author = StringField('Author', validators=[DataRequired(), Length(1, 64)])
-    title = StringField('Title', validators=[DataRequired(), Length(1,250), ])
-    description = StringField('Description', validators=[DataRequired(), Length(1, 250)])
+    title = StringField('Title', validators=[DataRequired(), Length(1, 150), ])
+    description = StringField('Description', validators=[DataRequired(), Length(1, 350)])
     file = FileField('Blog post', validators=[FileRequired(), FileAllowed(['md'], 'Markdown files only!')])
     submit = SubmitField('Upload file')
 

@@ -4,7 +4,7 @@ set -eu
 
 source venv/bin/activate
 while true; do
-    sleep 20
+    sleep 5
     flask db upgrade
     if [[ "$?" == "0" ]]; then
         break

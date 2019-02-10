@@ -4,7 +4,7 @@ from flask_login import UserMixin, AnonymousUserMixin
 from flask import current_app
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from datetime import datetime
-
+from re import sub
 
 class Permission:
     SUBSCRIBE = 1
@@ -78,7 +78,7 @@ class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
 
 class User(UserMixin, db.Model):
@@ -92,8 +92,8 @@ class User(UserMixin, db.Model):
     member_since = db.Column(db.DateTime(), default=datetime.utcnow)
     last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
-    blogposts = db.relationship('BlogPost', backref='author', lazy='dynamic')
+    posts = db.relationship('Post', backref='user', lazy='dynamic')
+    blogposts = db.relationship('BlogPost', backref='user', lazy='dynamic')
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
@@ -189,9 +189,17 @@ class BlogPost(db.Model):
     __tablename__ = 'blogposts'
     id = db.Column(db.Integer, primary_key=True)
     mongo_id = db.Column(db.String(64), unique=True, index=True)
-    title = db.Column(db.String(250), unique=True, index=True)
+    title = db.Column(db.String(64), unique=True, index=True)
+    description = db.Column(db.String(512))
+    url = db.Column(db.String(64), unique=True, index=True)
+    author = db.Column(db.String(64), index=True)
     created = db.Column(db.DateTime(), default=datetime.utcnow)
-    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __init__(self, **kwargs):
+        super(BlogPost, self).__init__(**kwargs)
+        if self.url is None:
+            self.url = sub('[^0-9a-zA-Z-]+', '',self.title.replace(' ', '-'))
 
 
 class AnonymousUser(AnonymousUserMixin):
