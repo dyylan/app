@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_pymongo import PyMongo
 from flask_marshmallow import Marshmallow
+from flask_jwt_extended import JWTManager
 from config import config
 
 bootstrap = Bootstrap()
@@ -14,6 +15,7 @@ moment = Moment()
 db = SQLAlchemy()
 mongo = PyMongo()
 ma = Marshmallow()
+jwt = JWTManager()
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
 
@@ -29,6 +31,7 @@ def create_app(config_name):
     db.init_app(app)
     mongo.init_app(app)
     ma.init_app(app)
+    jwt.init_app(app)
     login_manager.init_app(app)
 
     from .main import main as main_blueprint

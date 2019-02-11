@@ -32,6 +32,7 @@ pymysql = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
 bson = "*"
+flask-jwt-extended = "*"
 
 [dev-packages]
 "flake8" = "*"
