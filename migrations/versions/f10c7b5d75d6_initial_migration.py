@@ -101,9 +101,9 @@ def upgrade():
         [
             {
                 'id'                : 1,
-                'email'             : 'dylan.lewis@zoho.com',
-                'username'          : 'dylan',
-                'password_hash'     : '{}'.format(generate_password_hash(os.environ.get('ADMIN_PASS'))), 
+                'email'             : os.environ.get('ADMIN'),
+                'username'          : os.environ.get('ADMIN_USERNAME'),
+                'password_hash'     : '{}'.format(generate_password_hash(os.environ.get('ADMIN_PASSWORD'))), 
                 'confirmed'         : True,
                 'about_me'          : '',
                 'member_since'      : '{}'.format(time.strftime('%Y-%m-%d %H:%M:%S')),
