@@ -3,7 +3,6 @@ function deleteSelf(button) {
     button.remove();
 }
 
-
 // Fetch list of blogpost titles for right box
 fetch('/api/blogposts/blogpostlist')
     .then(response => response.json())
