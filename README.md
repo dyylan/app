@@ -1,25 +1,13 @@
-# Webapp
-
-**Name suggestions:**  
-
 ## To do
 
-1. Write a guide for how to run the app locally once the app is useable.
+1. Write a proper README.md
 
-## How to run locally
+## How to run locally (email doesn't work locally)
 
-**For Linux and Mac**
+1. Build the docker 
 
-1. Start virtual environment 
+> $ docker-compose build
 
-> $ source venv/bin/activate
+2. Spin up the dockers
 
-2. Set environment variable for **FLASK_APP**
-
-to be continued ...
-
-**For Windows**
-
-1. Install Linux or buy a Mac
-
-2. GoTo **For Linux and Mac**
+> $ docker-compose up
