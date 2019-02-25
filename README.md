@@ -6,7 +6,7 @@
 
 1. Add some environment variables (.env file)
 
-"""
+```
 FLASK_APP=main.py
 FLASK_DEBUG=0
 FLASK_CONFIG=development
@@ -44,7 +44,7 @@ MYSQL_PASSWORD==*******
 MONGO_INITDB_DATABASE=main
 MONGO_INITDB_ROOT_USERNAME==*******
 MONGO_INITDB_ROOT_PASSWORD=*******
-"""
+```
 
 1. Build the docker 
 
