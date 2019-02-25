@@ -25,7 +25,7 @@ def login():
     if email:
         user = User.query.filter_by(email=email).first()
     if user.verify_password(password):
-        access_token = create_access_token(identity=user)
-    ret = {'access_token': access_token}
-    return jsonify(ret), 200
-
+        token = create_access_token(identity=user)
+        api_token = {'access_token': token}
+        return jsonify(api_token), 200
+    return jsonify({"Message": "Username or password is wrong"}), 401

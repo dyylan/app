@@ -7,6 +7,11 @@ from ..models import User, Post, Permission
 from ..decorators import admin_required
 
 
+@main.route('/test', methods=['GET'])
+def test():
+    return render_template('test.html')
+
+
 @main.route('/', methods=['GET', 'POST'])
 def index():
     form = PostForm()

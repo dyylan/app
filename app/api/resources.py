@@ -8,9 +8,8 @@ from .schemas import (user_schema, users_schema,
                       blogpost_schema, blogposts_schema)
 
 
-################################################################################
-### Users API
-################################################################################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Users API
 
 @api.route('/users', methods=['GET'])
 def users():
@@ -29,9 +28,8 @@ def user_from_username(username):
     return jsonify(result)
 
 
-################################################################################
-### Posts API
-################################################################################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Posts API
 
 @api.route('/posts', methods=['GET'])
 def posts():
@@ -49,9 +47,8 @@ def post_from_id(post_id):
     return jsonify(result)
 
 
-################################################################################
-### Blogposts API
-################################################################################
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Blogposts API
 
 @api.route('/blogposts', methods=['GET'])
 def blogposts():
@@ -68,3 +65,9 @@ def blogpost_from_id(blogpost_id):
     else:
         result = {"Error" : "No blog posts with this id."}
     return jsonify(result)
+
+
+@api.route('/blogposts/blogpostlist', methods=['GET'])
+def blogpost_titles():
+    blogposts = BlogPost.query.with_entities(BlogPost.title, BlogPost.url).all()
+    return jsonify(blogposts)

@@ -55,16 +55,6 @@ def blog_posts():
     blogposts = BlogPost.query.with_entities(BlogPost.title, BlogPost.url).all()
     return render_template('blog/posts.html', blogposts=blogposts)
 
-'''
-@blog.route('/posts/<ObjectId:post_id>', methods=['GET'])
-def blog_post(post_id):
-    blogpost = mongo.db.posts.find_one_or_404(post_id)
-    return render_template('blog/post.html', 
-                            post=blogpost["file_html"],
-                            title=blogpost["title"],
-                            author=blogpost["author"], 
-                            created=blogpost["created"])'''
-
 
 @blog.route('/blogposts/<post_url>', methods=['GET'])
 def blog_post(post_url):
